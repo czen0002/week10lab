@@ -29,7 +29,7 @@ app.use("/", express.static(path.join(__dirname, "dist/movieAng")));
 // create an instance of MongoDB client
 // const MongoClient = mongodb.MongoClient;
 // define the location of the server and its port number
-const url = "mongodb://" + process.argv[2] + ":27017/week7lab";
+const url = "mongodb://" + process.argv[2] + ":27017/movies";
 console.log("Connecting to MongoDB Server=" + url);
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, function(err){
