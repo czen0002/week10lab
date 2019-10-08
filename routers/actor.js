@@ -120,5 +120,20 @@ module.exports = {
             });
 
         });
+    },
+
+    getAllMovies: function(req, res) {
+        let query = {$nor: [
+            {movies: {$exists: false}},
+            {movies: {$size: 0}},
+            {movies: {$size: 1}}
+        ]};       
+        Actor.find(query).exec(function (err, actors) {
+            if (err) {
+                return res.status(404).json(err);
+            } else {
+                res.json(actors);
+            }
+        });
     }
 };

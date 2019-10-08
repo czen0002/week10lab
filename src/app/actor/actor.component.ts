@@ -13,10 +13,12 @@ export class ActorComponent implements OnInit {
   ngOnInit() {
     this.onGetActors();
     this.onGetMovies();
+    this.onGetActorsMovies();
   }
 
   actorsDB: any[] = [];
   moviesDB: any[] = [];
+  actors: any[] = [];
   section = 1;
   fullName: string = "";
   bYear: number = 0;
@@ -61,6 +63,12 @@ export class ActorComponent implements OnInit {
     });
   }
 
+  // Get actors acting in at least 2 movies
+  onGetActorsMovies() {
+    this.dbService.getActorsMovies().subscribe((data: any[]) => {
+      this.actors = data;
+    })
+  }
   // Get all Movies
   onGetMovies() {
     this.dbService.getMovies().subscribe((data: any[]) => {

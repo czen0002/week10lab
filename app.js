@@ -42,6 +42,8 @@ mongoose.connect('mongodb://localhost:27017/movies', { useNewUrlParser: true, us
 
 //Configuring Endpoints
 //Actor RESTFul endpoionts 
+// get actors acting in at least 2 movies
+app.get('/actors2', actors.getAllMovies);
 app.get('/actors', actors.getAll);
 app.post('/actors', actors.createOne);
 app.get('/actors/:id', actors.getOne);
@@ -51,6 +53,7 @@ app.post('/actors/:id/movies', actors.addMovie);
 app.delete('/actors/:id', actors.deleteOne);
 //task3
 app.put('/actors/:id/:movieid', actors.removeMovie);
+
 
 
 //Movie RESTFul  endpoints

@@ -15,20 +15,28 @@ export class DatabaseService {
   getActors() {
     return this.http.get("/actors");
   }
+
   getActor(id: string) {
     let url = "/actors/" + id;
     return this.http.get(url);
   }
+
   createActor(data) {
     return this.http.post("/actors", data, httpOptions);
   }
+
   updateActor(id, data) {
     let url = "/actors/" + id;
     return this.http.put(url, data, httpOptions);
   }
+
   deleteActor(id) {
     let url = "/actors/" + id;
     return this.http.delete(url, httpOptions);
+  }
+
+  getActorsMovies() {
+    return this.http.get('/actors2');
   }
 
   getMovies() {
