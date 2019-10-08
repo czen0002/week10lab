@@ -16,29 +16,29 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/", express.static(path.join(__dirname, "dist/movieAng")));
 
-// mongoose.connect('mongodb://localhost:27017/movies', { useNewUrlParser: true, useUnifiedTopology: true }, function (err) {
-//     if (err) {
-//         return console.log('Mongoose - connection error:', err);
-//     }
-//     console.log('Connect Successfully');
+mongoose.connect('mongodb://localhost:27017/movies', { useNewUrlParser: true, useUnifiedTopology: true }, function (err) {
+    if (err) {
+        return console.log('Mongoose - connection error:', err);
+    }
+    console.log('Connect Successfully');
 
-// });
+});
 
 // connect to mongoose
 
 // create an instance of MongoDB client
 // const MongoClient = mongodb.MongoClient;
 // define the location of the server and its port number
-const url = "mongodb://" + process.argv[2] + ":27017/movies";
-console.log("Connecting to MongoDB Server=" + url);
+// const url = "mongodb://" + process.argv[2] + ":27017/movies";
+// console.log("Connecting to MongoDB Server=" + url);
 
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, function(err){
-    if (err) {
-        console.log("Err ", err);
-    } else {
-        console.log("Connected successfully to server");
-    }
-})
+// mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, function(err){
+//     if (err) {
+//         console.log("Err ", err);
+//     } else {
+//         console.log("Connected successfully to server");
+//     }
+// })
 
 //Configuring Endpoints
 //Actor RESTFul endpoionts 
